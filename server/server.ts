@@ -2,7 +2,7 @@ require('dotenv').config();
 
 import { Request, Response } from 'express';
 import express from 'express';
-import home from './routes/home';
+import auth from './routes/auth'
 import morgan from 'morgan';
 import helmet from 'helmet';
 import mongoose from 'mongoose';
@@ -27,7 +27,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use(helmet());
 app.use(morgan("combined"));
-app.use('/home', home);
+app.use('/auth', auth);
 
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
