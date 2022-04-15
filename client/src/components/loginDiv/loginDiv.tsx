@@ -81,7 +81,9 @@ function LoginDiv() {
               <Divider orientation="horizontal" flexItem className="divider">
                 Or
               </Divider>
-              <GoogleLoginComp />
+              <div className="google-div">
+                <GoogleLoginComp />
+              </div>
             </div>
             <div className="screen__background">
               <span className="screen__background__shape screen__background__shape4"></span>

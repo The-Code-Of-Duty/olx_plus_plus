@@ -24,6 +24,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import LoginDiv from "../loginDiv/loginDiv";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -221,9 +222,7 @@ export default function Navbar() {
               </NativeSelect>
             </FormControl>
           </Box>
-          <Link component="button" variant="body2" color={color}>
-            Button Link
-          </Link>
+          <LoginDiv />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
