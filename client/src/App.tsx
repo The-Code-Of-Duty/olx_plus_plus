@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar"
 import Category from "./components/Category/Category"
 import Footer from "./components/Footer/footer";
 import PostGrid from "./components/PostGrid/postgrid";
+import PostDetails from "./components/PostDetails/postDetails";
 
 function App() {
   const { user } = useContext(AuthContext);
