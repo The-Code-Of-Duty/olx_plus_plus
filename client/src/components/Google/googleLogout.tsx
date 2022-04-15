@@ -11,7 +11,7 @@ export default function googleLogout() {
     return (
     <div>
         <GoogleLogout 
-          clientId={process.env.CLIENT_ID}
+          clientId="818841348357-1chcsfpshjf8s99vqkpu4ckdvn9esqen.apps.googleusercontent.com"
           buttonText="Logout"
           onLogoutSuccess={responseSuccess}
         />
