@@ -17,7 +17,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 export default function PostCard() {
   return (
-    <Card sx={{ maxWidth: 250 }}>
+    <Card>
       {/* <CardHeader
         action={
           <IconButton aria-label="settings">
@@ -44,7 +44,7 @@ export default function PostCard() {
       <Card
         sx={{
           padding: 1,
-          margin: 2,
+          margin: 0,
           marginBottom: 0,
           border: "none",
           boxShadow: "none",
