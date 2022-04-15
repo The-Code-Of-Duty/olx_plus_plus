@@ -1,23 +1,25 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "./context/Authcontext.jsx";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar"
 import Category from "./components/Category/Category"
 import Footer from "./components/Footer/footer";
 import PostGrid from "./components/PostGrid/postgrid";
-import PostDetails from "./components/PostDetails/postDetails";
-import CreatePost from "./components/CreatePost/createpost";
+import Home from "./pages/Home"
 
 function App() {
   const { user } = useContext(AuthContext);
-  const [count, setCount] = useState(0);
 
   return (
+    <BrowserRouter>
     <div className="App">
       <Navbar />
-      <Category />
-      <PostGrid />
+        <Switch> 
+          <Route path="/" component={Home} exact/>
+        </Switch>
       <Footer />
     </div>
+    </BrowserRouter>
   );
 }
 
