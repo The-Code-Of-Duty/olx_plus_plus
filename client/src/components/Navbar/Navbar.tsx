@@ -25,6 +25,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import LoginDiv from "../loginDiv/loginDiv";
+import "./Navbar.scss"
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -172,7 +173,7 @@ export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{backgroundColor: '#20baf7'}}>
-        <Toolbar>
+        <Toolbar className="toolbar-flex">
           <Typography
             variant="h6"
             noWrap
@@ -181,7 +182,7 @@ export default function Navbar() {
           >
             OLX
           </Typography>
-          <Stack spacing={2} sx={{ width: 300, marginLeft: 10 }}>
+          {/* <Stack spacing={2} sx={{ width: 300, marginLeft: 10 }}>
             <Autocomplete
               id="free-solo-demo"
               freeSolo
@@ -190,7 +191,7 @@ export default function Navbar() {
                 <TextField {...params} label="freeSolo" />
               )}
             />
-          </Stack>
+          </Stack> */}
           <Search sx={{ minWidth: 200 }}>
             <SearchIconWrapper>
               <SearchIcon />
@@ -201,29 +202,22 @@ export default function Navbar() {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ minWidth: 120 }}>
-            <FormControl fullWidth>
-              <InputLabel
-                variant="standard"
-                htmlFor="uncontrolled-native"
-                sx={{ color: "white" }}
-              >
-                Language
-              </InputLabel>
-              <NativeSelect
-                defaultValue={30}
-                inputProps={{
-                  name: "Language",
-                  id: "uncontrolled-native",
-                }}
-              >
-                <option value={10}>English</option>
-                <option value={20}>Hindi</option>
-              </NativeSelect>
-            </FormControl>
-          </Box>
           <LoginDiv />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+              <Badge badgeContent={4} color="error">
+                <MailIcon />
+              </Badge>
+            </IconButton>
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+              <Badge badgeContent={17} color="error">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
             <IconButton
               size="large"
               edge="end"
