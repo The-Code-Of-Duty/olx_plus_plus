@@ -39,9 +39,6 @@ function App() {
           </a>
         </p>
       </header> */}
-      <h1>
-        Hello
-      </h1>
       <GoogleLoginComp />
     </div>
   )

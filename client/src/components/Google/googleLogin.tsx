@@ -12,7 +12,7 @@ export default function GoogleLoginComp() {
   const responseFailure = (response:any) =>{
     console.log('Login Failed', response);
   }
-  const googleClientId : string =(process.env.REACT_APP_CLIENT_ID as string);
+  const googleClientId : string ="818841348357-1chcsfpshjf8s99vqkpu4ckdvn9esqen.apps.googleusercontent.com";
     return (
     <div>
       <GoogleLogin
