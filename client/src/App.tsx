@@ -1,8 +1,6 @@
 import { useState } from "react";
-// import logo from "./logo.svg";
-// import './App.css'
-import Navbar from "./components/Navbar/Navbar";
-import Category from "./components/Category/Category";
+import Navbar from "./components/Navbar/Navbar"
+import Category from "./components/Category/Category"
 import Footer from "./components/Footer/footer";
 import PostGrid from "./components/PostGrid/postgrid";
 
