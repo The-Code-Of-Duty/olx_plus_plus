@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import logo from './logo.svg'
+// import logo from './logo.svg'
 import './App.css'
-import GoogleLoginComp from './components/Google/googleLogin';
+import LoginDiv from './components/loginDiv/loginDiv';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -39,7 +39,7 @@ function App() {
           </a>
         </p>
       </header> */}
-      <GoogleLoginComp />
+      <LoginDiv />
     </div>
   )
 }
