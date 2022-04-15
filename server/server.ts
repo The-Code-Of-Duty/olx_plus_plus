@@ -1,22 +1,34 @@
-require("dotenv").config();
+require('dotenv').config();
 
-import { Request, Response } from "express";
-import express from "express";
-import home from "./routes/home";
-import morgan from "morgan";
-import helmet from "helmet";
-import mongoose from "mongoose";
-import cors from "cors";
+import { Request, Response } from 'express';
+import express from 'express';
+import home from './routes/home';
+import morgan from 'morgan';
+import helmet from 'helmet';
+import mongoose from 'mongoose';
+import cors from 'cors';
 
-const app=express();
+const app = express();
 const PORT = process.env.PORT || 8080;
 
-app.get("/",(req:Request,res:Response)=>{
-    res.send("Hello World");
+const mongoUrl: string = process.env.MONGO_URL as string;
+
+mongoose.connect(
+    mongoUrl,
+    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
+    () => {
+        console.log('Connected to MongoDB');
+    }
+);
+
+app.get('/', (req: Request, res: Response) => {
+    res.send('Hello World');
 });
 
-app.use("/home",home);
+app.use(helmet());
+app.use(morgan("combined"));
+app.use('/home', home);
 
-app.listen(PORT, ()=>{
-     console.log(`Server running on port: ${PORT}`);
-})
+app.listen(PORT, () => {
+    console.log(`Server running on port: ${PORT}`);
+});
