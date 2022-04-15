@@ -12,7 +12,7 @@ export default function GoogleLoginComp() {
   const responseFailure = (response:any) =>{
     console.log('Login Failed', response);
   }
-  const googleClientId : string ="818841348357-1chcsfpshjf8s99vqkpu4ckdvn9esqen.apps.googleusercontent.com";
+  const googleClientId : string =`818841348357-1chcsfpshjf8s99vqkpu4ckdvn9esqen.apps.googleusercontent.com`;
     return (
     <div>
       <GoogleLogin
@@ -22,6 +22,7 @@ export default function GoogleLoginComp() {
         onFailure={responseFailure}
         cookiePolicy={"single_host_origin"}
         isSignedIn={true}
+        className="google-login"
       />
     </div>
   );

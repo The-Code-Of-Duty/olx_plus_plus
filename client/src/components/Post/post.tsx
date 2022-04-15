@@ -1,30 +1,19 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/FavoriteBorder";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import "./post.scss";
 
-export default function PostCard() {
+
+export default function PostCard({address='', date='', cost='', description=''}) {
   return (
     <Card>
-      {/* <CardHeader
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-      /> */}
       <CardActions
         sx={{
           position: "absolute",
@@ -37,9 +26,9 @@ export default function PostCard() {
         }}
         disableSpacing
       >
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
+        <div className="fav-icon">
+      
+        </div>
       </CardActions>
       <Card
         sx={{
@@ -67,6 +56,7 @@ export default function PostCard() {
           paddingBottom: 1,
         }}
       >
+        <div className="card-flex">
         <Typography
           sx={{ fontSize: 24, fontWeight: 650 }}
           variant="h4"
@@ -74,21 +64,22 @@ export default function PostCard() {
         >
           $100000
         </Typography>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        </div>
         <Typography color="text.secondary">Tata Nexon 1000</Typography>
       </CardContent>
       <div
         style={{
           marginBottom: 0,
         }}
+        className="post-foot"
       >
-        <Typography
-          sx={{
-            fontSize: 12,
-            padding: 1,
-          }}
-        >
-          Location - Date
-        </Typography>
+        <div className="location">
+          Canada Corner Chowk, Nashik
+        </div>
+        <div className="date">Date</div>
       </div>
     </Card>
   );
