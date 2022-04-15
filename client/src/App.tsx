@@ -5,6 +5,7 @@ import Category from "./components/Category/Category"
 import Footer from "./components/Footer/footer";
 import PostGrid from "./components/PostGrid/postgrid";
 import PostDetails from "./components/PostDetails/postDetails";
+import CreatePost from "./components/CreatePost/createpost";
 
 function App() {
   const { user } = useContext(AuthContext);
