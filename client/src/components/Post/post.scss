@@ -1,0 +1,16 @@
+.post-foot{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    color: rgb(198, 198, 198);
+    font-size: 0.7rem;
+}
+.card-flex{
+    display: flex;
+    justify-content: space-between;
+}
+.fav-icon{
+    position: relative;
+    top: 0;
+    z-index: 10;
+}
