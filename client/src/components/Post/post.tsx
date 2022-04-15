@@ -11,7 +11,7 @@ import FavoriteIcon from "@mui/icons-material/FavoriteBorder";
 import "./post.scss";
 
 
-export default function PostCard({address='', date='', cost='', description=''}) {
+export default function PostCard({location='', date='', price='', description='', image=''}) {
   return (
     <Card>
       <CardActions
@@ -26,9 +26,6 @@ export default function PostCard({address='', date='', cost='', description=''})
         }}
         disableSpacing
       >
-        <div className="fav-icon">
-      
-        </div>
       </CardActions>
       <Card
         sx={{
@@ -43,7 +40,7 @@ export default function PostCard({address='', date='', cost='', description=''})
           sx={{ zIndex: 1 }}
           component="img"
           height="150"
-          image="https://apollo-singapore.akamaized.net/v1/files/6troq7hzgkeb-IN/image;s=300x600;q=60"
+          image={image}
           alt="Paella dish"
         />
       </Card>
@@ -62,13 +59,13 @@ export default function PostCard({address='', date='', cost='', description=''})
           variant="h4"
           component="div"
         >
-          $100000
+          {price}
         </Typography>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
         </div>
-        <Typography color="text.secondary">Tata Nexon 1000</Typography>
+        <Typography color="text.secondary">{description}</Typography>
       </CardContent>
       <div
         style={{
@@ -77,9 +74,9 @@ export default function PostCard({address='', date='', cost='', description=''})
         className="post-foot"
       >
         <div className="location">
-          Canada Corner Chowk, Nashik
+          {location}
         </div>
-        <div className="date">Date</div>
+        <div className="date">{date}</div>
       </div>
     </Card>
   );
