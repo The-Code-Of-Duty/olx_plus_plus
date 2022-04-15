@@ -6,14 +6,16 @@ import Footer from "./components/Footer/footer";
 import PostCard from "./components/Post/post";
 import PostGrid from "./components/PostGrid/postgrid";
 import PostDetails from "./components/PostDetails/postDetails";
+import CreatePost from "./components/CreatePost/createpost";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <PostGrid />
-      <Footer />
+      {/* <PostGrid />
+      <Footer /> */}
+      <CreatePost />
     </div>
   );
 }
