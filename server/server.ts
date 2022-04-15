@@ -25,6 +25,7 @@ app.get('/', (req: Request, res: Response) => {
     res.send('Hello World');
 });
 
+app.use(cors());
 app.use(helmet());
 app.use(morgan("combined"));
 app.use('/auth', auth);

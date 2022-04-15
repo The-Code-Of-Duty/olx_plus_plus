@@ -1,10 +1,7 @@
-import { Request, Response } from 'express';
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(process.env.G00GLE_CLIENT_ID);
 
-const googleAuth = async (req: Request, res: Response, next: any) => {
-    const token = req.headers.authorization;
-    console.log(token);
+const googleAuth = async (token : string) => {
 
     const ticket = await client.verifyIdToken({
         idToken: token,
@@ -13,9 +10,10 @@ const googleAuth = async (req: Request, res: Response, next: any) => {
     const payload = ticket.getPayload();
 
     console.log(`User ${payload.name} verified`);
+
     const { sub, email, name, picture } = payload;
-    const userId = sub;
-    return { userId, email, fullName: name, photourl: picture };
+    const googleId = sub;
+    return { name, email, googleId, photourl: picture };
 };
 
-module.exports = googleAuth;
+export default googleAuth;

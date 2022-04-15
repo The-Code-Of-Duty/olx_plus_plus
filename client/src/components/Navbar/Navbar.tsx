@@ -24,7 +24,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import LoginDiv from "../loginDiv/loginDiv";
+import GoogleLoginComp from "../Google/googleLogin";
 import "./Navbar.scss"
 
 const Search = styled("div")(({ theme }) => ({
@@ -202,7 +202,7 @@ export default function Navbar() {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <LoginDiv />
+          <GoogleLoginComp />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
