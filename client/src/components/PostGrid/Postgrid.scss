@@ -1,0 +1,11 @@
+.post{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-flow: row wrap;
+    .post-card{
+        width: 20%;
+        margin: 10px;
+        height: auto;
+    }
+}
