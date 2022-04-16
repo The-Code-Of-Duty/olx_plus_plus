@@ -19,6 +19,7 @@ export default function GoogleLoginComp() {
     localStorage.setItem("userName",res.data.name);
     localStorage.setItem("userEmail",res.data.email);
     localStorage.setItem("userProfile",res.data.profilePicture);
+    window.location.href = '/';
     
   };
 
