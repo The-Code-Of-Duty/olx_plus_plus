@@ -24,7 +24,7 @@ router.get('/', async (req: Request, res: Response) => {
   }
 })
 
-router.get('/post:id' ,async (req:Request, res:Response) => {
+router.get('/post/:id' ,async (req:Request, res:Response) => {
     const id = String(req.params.id);
     try{
       const PostData = await Post.findOne({
@@ -71,6 +71,11 @@ router.get('/allbought/:mail',async (req:Request, res:Response) => {
     console.log(err);
     res.status(500).send(err);
   }
+})
+router.post('/buy', async (req: Request, res: Response)=>{
+   const {address, _id, name, email, category} = req.body;
+   const response = await Post.findOneAndUpdate({_id:_id}, {Buyer_name:name, Buyer_email:email, isSold:true})
+   console.log(response);
 })
 
 export default router;

@@ -68,6 +68,9 @@ export default function Navbar(props: any) {
   const handleSubmit = () => {
     history.push("/post");
   };
+  const handleProfile = () => {
+    history.push("/profile");
+  }
   const isAuthenticated = props.userData.name != "";
   console.log(isAuthenticated);
 
@@ -76,6 +79,7 @@ export default function Navbar(props: any) {
   const handleChange = (event: any) => {
     setAge(event.target.value);
   };
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -116,7 +120,7 @@ export default function Navbar(props: any) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleProfile}>Profile</MenuItem>
       <MenuItem>
         <GoogleLogout />
       </MenuItem>

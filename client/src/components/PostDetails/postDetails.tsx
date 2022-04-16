@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 import { useEffect } from "react";
 import React, { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
@@ -24,7 +24,18 @@ function PostDetails() {
   const { address, email, date, description, image, name, price, category } =
     postdata;
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    const email = localStorage.getItem("userEmail")
+    const name = localStorage.getItem("userName")
+    const data = {
+      address: address,
+      _id: id,
+      email: email,
+      name: name,
+      category: category,
+    }
+    const res = await axios.post("http://localhost:8080/post/buy",data
+      ).catch(err => console.log(err)) as AxiosResponse;
     history.push("/profile");
   };
 
