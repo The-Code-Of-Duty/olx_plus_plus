@@ -17,9 +17,9 @@ const CreatePost = () => {
 
       const formData = new FormData();
       formData.append("file",image as Blob);
-      formData.append("upload_preset","z401yjqx");
+      formData.append("upload_preset","ng71oo5d");
 
-      const res = await axios.post("https://api.cloudinary.com/v1_1/dgjn5a09z/image/upload",formData
+      const res = await axios.post("https://api.cloudinary.com/v1_1/dfhhrewzz/image/upload",formData
       ).catch(err => console.log(err)) as AxiosResponse;
       
       const imgUrl : AxiosResponse = res.data.secure_url as AxiosResponse;
