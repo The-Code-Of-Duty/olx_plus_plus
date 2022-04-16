@@ -1,13 +1,40 @@
-import { useHistory } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Divider from "@mui/material/Divider";
 import PostGrid from "../../components/PostGrid/postgrid";
+import OrderDetails from "../../components/orderDetails/orderDetails";
+import axios,{AxiosResponse} from "axios";
 import "./profile.scss";
 
 function Profile(props: any) {
   const userProfile = props.userData.profileUrl;
   const userName = props.userData.name;
   const userEmail = props.userData.email;
+
+  const [data,setData] = useState([]);
+  const [bought,setBought] = useState([]);
+  const getPosts = async () => {
+    if(userEmail!==''){
+      const res : AxiosResponse = await axios.get(`http://localhost:8080/allposts/${userEmail}`).catch(err => console.log(err)) as AxiosResponse;
+  
+      console.log(res.data);
+      if(res && res.data)
+        setData(res.data);
+    }
+  };
+  const getBought = async () => {
+    if(userEmail!==''){
+      const res : AxiosResponse = await axios.get(`http://localhost:8080/allbought/${userEmail}`).catch(err => console.log(err)) as AxiosResponse;
+  
+      if(res && res.data)
+        setBought(res.data);
+      
+    }
+  };
+  useEffect(() =>{
+     getPosts();
+     getBought();
+  },[userEmail]);
 
   return (
     <div className="profile">
@@ -25,14 +52,20 @@ function Profile(props: any) {
             <h3>
               Your Ads
             </h3>
-            <PostGrid />
+            <PostGrid data={data} />
             </div>
         <Divider />
         <div className="myBuys">
             <h3>
-              Yoour orders
+              Your orders
             </h3>
-            <PostGrid />
+            {
+              bought.map((post:any, index:any) => {
+                return(
+                  <OrderDetails data={post} key={index} />
+                );
+              })
+            }
             </div>
       </div>
     </div>

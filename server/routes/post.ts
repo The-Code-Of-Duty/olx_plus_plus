@@ -24,21 +24,53 @@ router.get('/', async (req: Request, res: Response) => {
   }
 })
 
-router.get('/post/:id', async (req: Request, res: Response) => {
-  const id = String(req.params.id);
-  try {
-    const PostData = await Post.findOne({
-      _id: id
+router.get('/post:id' ,async (req:Request, res:Response) => {
+    const id = String(req.params.id);
+    try{
+      const PostData = await Post.findOne({
+        _id: id
+      })
+      console.log(PostData);
+      res.status(200).json(PostData);
+    }
+    catch(err){
+      console.log(err);
+    }
+})
+
+//get certain user's all posts
+
+router.get('/allposts/:mail',async (req:Request, res:Response) => {
+  const mail = String(req.params.mail);
+  try{
+    const PostData = await Post.find({
+      email: mail
     })
     console.log("PostData", PostData);
-
-    res.json(PostData);
+    res.status(200).json(PostData);
   }
-  catch (err) {
+  catch(err){
     console.log(err);
+    res.status(500).send(err);
   }
+})
 
+//get all items bought by a user
 
+router.get('/allbought/:mail',async (req:Request, res:Response) => {
+  const mail = String(req.params.mail);
+  try{
+    const PostData = await Post.find({
+      Buyer_email: mail,
+      isSold: true
+    })
+    console.log(PostData);
+    res.status(200).json(PostData);
+  }
+  catch(err){
+    console.log(err);
+    res.status(500).send(err);
+  }
 })
 
 export default router;

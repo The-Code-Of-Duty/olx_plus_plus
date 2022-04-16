@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import axios, { AxiosResponse } from "axios";
 import "./Postgrid.scss";
 
-export default function PostGrid({ data }) {
+export default function PostGrid({ data }:any) {
     
   return (
     <div style={{ width: "100%" }}>

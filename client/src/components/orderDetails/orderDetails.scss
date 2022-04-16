@@ -1,0 +1,23 @@
+.order-details{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 2px;
+    border-radius: 10px;
+    background-color: rgba(231, 231, 231, 0.555);
+
+    .upper{
+        display: flex;
+        flex-direction: row;
+
+        align-items: flex-start;
+        justify-content: space-evenly;
+    }
+    .lower{
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+        justify-content: space-evenly;
+    }
+}
