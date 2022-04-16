@@ -11,35 +11,33 @@ function OrderDetails(props : any) {
         <div className="upper">
             <div className="pid">
                 <h3>
-                    Id: 
+                    Id: {pid}
                 </h3>
-                {pid}
             </div>   
             <div className="p-name">
                 <h3>
-                    Name:
+                    Name: {pName}
                 </h3>
-                {pName}
             </div> 
             <div className="bought-date">
                 <h3>
-                    Bought on:
+                    Bought on: {boughtOn}
                 </h3>    
-                {boughtOn}
+                
             </div>
         </div>
         <div className="lower">
         <div className="status">
                 <h3>
-                    Status: 
+                    Status: pending
                 </h3>
-                {currentStatus}
+                
             </div>   
             <div className="ctg">
                 <h3>
-                    Category:
+                    Category: {category}
                 </h3>
-                {category}
+                
             </div> 
             <div className="view-more">
                 <a href="#">View more</a>

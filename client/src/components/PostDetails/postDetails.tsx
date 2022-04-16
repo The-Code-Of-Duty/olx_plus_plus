@@ -34,7 +34,7 @@ function PostDetails() {
       name: name,
       category: category,
     }
-    const res = await axios.post("http://localhost:8080/post/buy",data
+    const res : AxiosResponse = await axios.post("http://localhost:8080/buy",data
       ).catch(err => console.log(err)) as AxiosResponse;
     history.push("/profile");
   };
