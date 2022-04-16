@@ -39,7 +39,7 @@ const CreatePost = () => {
           'Content-type': 'application/json'
         }}).catch(err => console.log(err)) as AxiosResponse;
         console.log(response);
-        
+        window.location.href = '/'        
     };
   return (
     <Fragment>
