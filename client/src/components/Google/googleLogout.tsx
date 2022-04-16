@@ -6,6 +6,10 @@ export default function googleLogout() {
    const [open, setOpen] = useState(false);
     const responseSuccess = () =>{
       setOpen(true);
+      localStorage.removeItem('userEmail');
+      localStorage.removeItem('userName');
+      localStorage.removeItem('userToken');
+      window.location.href='/'
    }
   
     return (
@@ -13,6 +17,14 @@ export default function googleLogout() {
         <GoogleLogout 
           clientId="818841348357-1chcsfpshjf8s99vqkpu4ckdvn9esqen.apps.googleusercontent.com"
           buttonText="Logout"
+          render={(renderProps) => (
+            <div
+              onClick={renderProps.onClick}
+              className="signin"
+            >
+              Logout
+            </div>
+          )}
           onLogoutSuccess={responseSuccess}
         />
         {/* <Snackbar

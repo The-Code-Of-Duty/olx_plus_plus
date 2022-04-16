@@ -25,7 +25,9 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import GoogleLoginComp from "../Google/googleLogin";
+import GoogleLogout from "../Google/googleLogout";
 import "./Navbar.scss";
+
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -99,6 +101,7 @@ export default function Navbar(props: any) {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -117,7 +120,7 @@ export default function Navbar(props: any) {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem><GoogleLogout /></MenuItem>
     </Menu>
   );
 
