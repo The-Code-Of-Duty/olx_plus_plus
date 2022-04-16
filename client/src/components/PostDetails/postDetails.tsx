@@ -1,6 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import {useEffect} from 'react';
+import React, { useParams } from "react-router-dom";
 import "./postDetails.css";
 function PostDetails() {
+  const { id } = useParams();
+  let postdata;
+  useEffect(() => {
+     axios.get('http://localhost:8080/post/'+id).then((response) => {
+       console.log(response);
+     }).then((response) => {
+       postdata = response;
+     })
+  })
   return (
     <div className="viewParentDiv">
       <div className="imageShowDiv">

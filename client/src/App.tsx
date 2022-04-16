@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar"
 import Category from "./components/Category/Category"
 import Footer from "./components/Footer/footer";
 import PostGrid from "./components/PostGrid/postgrid";
+import PostDetail from "./components/PostDetails/postDetails"
 import Home from "./pages/Home"
 import Post from "./pages/Post"
 
@@ -31,6 +32,7 @@ function App() {
         <Switch> 
           <Route path="/" component={Home} exact/>
           <Route path="/post" component={Post} exact/>
+          <Route path="/post:id" component={PostDetail} exact/>
         </Switch>
       <Footer />
     </div>
