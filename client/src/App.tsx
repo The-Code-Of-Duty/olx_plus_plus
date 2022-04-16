@@ -30,9 +30,9 @@ function App() {
       });
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(user);
-  },[user]);
+  }, [user]);
 
   return (
     <BrowserRouter>
