@@ -4,9 +4,9 @@ import Navbar from "./components/Navbar/Navbar";
 import Category from "./components/Category/Category";
 import Footer from "./components/Footer/footer";
 import PostGrid from "./components/PostGrid/postgrid";
-import Home from "./pages/Home";
-import Post from "./pages/Post";
-import Profile from "./pages/profile/profile";
+import PostDetail from "./components/PostDetails/postDetails"
+import Home from "./pages/Home"
+import Post from "./pages/Post"
 
 function App() {
   const [user, setUser] = useState({
@@ -35,14 +35,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
-        <Navbar userData={user} />
-        <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/post" component={Post} exact />
-          <Route path="/profile" exact>
-              <Profile userData={user} />
-          </Route>
+    <div className="App">
+      <Navbar userData={user} />
+        <Switch> 
+          <Route path="/" component={Home} exact/>
+          <Route path="/post" component={Post} exact/>
+          <Route path="/post:id" component={PostDetail} exact/>
         </Switch>
         <Footer />
       </div>

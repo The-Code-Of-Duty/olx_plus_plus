@@ -24,4 +24,20 @@ router.get('/', async (req:Request, res:Response) => {
     }
 })
 
+router.get('/post:id' ,async (req:Request, res:Response) => {
+    const id = String(req.params.id);
+    try{
+      const PostData = await Post.findOne({
+        _id: id
+      })
+      console.log(PostData);
+      res.send(200).json(PostData);
+    }
+    catch(err){
+      console.log(err);
+    }
+    
+    
+})
+
 export default router;
