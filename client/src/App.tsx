@@ -42,7 +42,7 @@ function App() {
           <Route path="/" component={Home} exact/>
           <Route path="/post" component={Post} exact/>
           <Route path="/profile" exact><Profile userData={user} /></Route>
-          <Route path="/post:id" component={PostDetail} exact/>
+          <Route path="/post/:id" component={PostDetail} exact/>
         </Switch>
         <Footer />
       </div>
