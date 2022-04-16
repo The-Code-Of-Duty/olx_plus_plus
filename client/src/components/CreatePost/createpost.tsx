@@ -8,16 +8,26 @@ const CreatePost = () => {
   let [price, setPrice] = useState("");
   let [description, setDescription] = useState("");
   let [address, setAddress] = useState("");
+  let [image, setImage] = useState<Blob>();
 
-  let [image, setImage] = useState();
     const handleSubmit = async (e:any) => {
       e.preventDefault();
       const email = localStorage.getItem("userEmail");
       const date = new Date();
+
+      const formData = new FormData();
+      formData.append("file",image as Blob);
+      formData.append("upload_preset","ng71oo5d");
+
+      const res = await axios.post("https://api.cloudinary.com/v1_1/dfhhrewzz/image/upload",formData
+      ).catch(err => console.log(err)) as AxiosResponse;
+      
+      const imgUrl : AxiosResponse = res.data.secure_url as AxiosResponse;
+
         const body = {
           email: email, 
           name: name,
-          image: image,  
+          image: imgUrl,  
           category: category,
           address: address,   
           date: date,

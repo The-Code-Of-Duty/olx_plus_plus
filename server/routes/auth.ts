@@ -3,10 +3,6 @@ const router = require('express').Router();
 import googleAuth from "../middlewares/googleAuth";
 import User from "../models/User";
 
-router.get('/', (req: Request, res: Response) => {
-    
-});
-
 router.post("/login",async (req:Request, res:Response) => {
     let token : string = req.headers.authorization as string;
     token = token?.split(" ")[1];
