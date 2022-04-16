@@ -70,7 +70,8 @@ export default function Navbar(props: any) {
   };
   const handleProfile = () => {
     history.push("/profile");
-  }
+    handleMenuClose();
+  };
   const isAuthenticated = props.userData.name != "";
   console.log(isAuthenticated);
 
