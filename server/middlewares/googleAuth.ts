@@ -13,7 +13,7 @@ const googleAuth = async (token : string) => {
 
     const { sub, email, name, picture } = payload;
     const googleId = sub;
-    return { name, email, googleId, photourl: picture };
+    return { name, email, googleId, profilePicture: picture };
 };
 
 export default googleAuth;
