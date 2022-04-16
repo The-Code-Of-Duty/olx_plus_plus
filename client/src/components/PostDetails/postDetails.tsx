@@ -58,7 +58,7 @@ function PostDetails() {
 
           <div className="contactDetails">
             <p className="p-bold">Seller details</p>
-            <p>Name : {email}</p>
+            <p>Email : <a href={`mailto:${email}`}> {email}</a> </p>
             <p>Address: {address}</p>
           </div>
           <div>
