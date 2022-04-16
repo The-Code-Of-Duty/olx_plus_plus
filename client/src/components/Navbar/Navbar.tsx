@@ -21,7 +21,7 @@ import GoogleLoginComp from "../Google/googleLogin";
 import GoogleLogout from "../Google/googleLogout";
 import "./Navbar.scss";
 import Button from "@mui/material/Button";
-
+import { useHistory } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -64,6 +64,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Navbar(props: any) {
+  const history = useHistory();
+  const handleSubmit = () => {
+    history.push("/post");
+  };
   const isAuthenticated = props.userData.name != "";
   console.log(isAuthenticated);
 
@@ -95,7 +99,6 @@ export default function Navbar(props: any) {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -114,7 +117,9 @@ export default function Navbar(props: any) {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem><GoogleLogout /></MenuItem>
+      <MenuItem>
+        <GoogleLogout />
+      </MenuItem>
     </Menu>
   );
 
@@ -179,8 +184,10 @@ export default function Navbar(props: any) {
             noWrap
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
-          ><a href="/" style={{textDecoration: "none"}}>
-            OLX++ </a>
+          >
+            <a href="/" style={{ textDecoration: "none" }}>
+              OLX++{" "}
+            </a>
           </Typography>
           {/* <Stack spacing={2} sx={{ width: 300, marginLeft: 10 }}>
             <Autocomplete
@@ -202,9 +209,9 @@ export default function Navbar(props: any) {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          {!isAuthenticated ? 
+          {!isAuthenticated ? (
             <GoogleLoginComp />
-          : (
+          ) : (
             <IconButton
               size="large"
               edge="end"
@@ -238,7 +245,15 @@ export default function Navbar(props: any) {
               </Badge>
             </IconButton>
           </Box>
-          {isAuthenticated && <Button variant="outlined" style={{color:"white", marginLeft: "10px"}}>SELL</Button>}
+          {isAuthenticated && (
+            <Button
+              onClick={handleSubmit}
+              variant="outlined"
+              style={{ color: "white", marginLeft: "10px" }}
+            >
+              SELL
+            </Button>
+          )}
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
