@@ -59,7 +59,7 @@ export default function PostCard({address='', date='', price='', description='',
           variant="h4"
           component="div"
         >
-          {price}
+          ₹ {price}
         </Typography>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />

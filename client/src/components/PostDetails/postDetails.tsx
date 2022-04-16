@@ -1,45 +1,68 @@
 import axios from "axios";
-import {useEffect} from 'react';
+import { useEffect } from "react";
 import React, { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./postDetails.css";
+import { useState } from "react";
+import { Button } from "@mui/material";
+import LocalMallIcon from "@mui/icons-material/LocalMall";
 function PostDetails() {
-  const { id } = useParams();
-  let postdata;
-  useEffect(() => {
-     axios.get('http://localhost:8080/post/'+id).then((response) => {
-       console.log(response);
-     }).then((response) => {
-       postdata = response;
-     })
-  })
-  return (
-    <div className="viewParentDiv">
-      <div className="imageShowDiv">
-        <img
-          src={
-            "https://apollo-singapore.akamaized.net/v1/files/6troq7hzgkeb-IN/image;s=300x600;q=60"
-          }
-          alt=""
-        />
-      </div>{" "}
-      <div className="rightSection">
-        <div className="productDetails">
-          <p>&#x20B9; $100000 </p>
-          <span>Iphone</span>
-          <span>12th Feb</span>
-        </div>
-        <div className="productDescription">
-          <p className="p-bold">Product Description</p>
-          <p>lorem ipsum lorem ipsum</p>
-        </div>
+  const [postdata, setpostdata] = useState([]);
+  const history = useHistory();
 
-        <div className="contactDetails">
-          <p className="p-bold">Seller details</p>
-          <p>Name : PrithviRaj Chauhan</p>
-          <p>Phone : 999738847</p>
+  const { id } = useParams();
+  console.log(id);
+  useEffect(() => {
+    axios.get("http://localhost:8080/post/" + id).then((response) => {
+      // console.log(response);
+      setpostdata(response.data);
+    });
+  }, []);
+
+  console.log("postdata", postdata);
+
+  const { address, email, date, description, image, name, price, category } =
+    postdata;
+
+  const handleSubmit = () => {
+    history.push("/profile");
+  };
+
+  return (
+    <>
+      <div className="viewParentDiv">
+        <div className="imageShowDiv">
+          <img src={image} alt="" />
+        </div>{" "}
+        <div className="rightSection">
+          <div className="productDetails">
+            <p>&#x20B9; {price} </p>
+            <span>{name}</span>
+            <span>{date}</span>
+          </div>
+          <div className="productDescription">
+            <p className="p-bold">Product Description</p>
+            <p>{description}</p>
+          </div>
+
+          <div className="contactDetails">
+            <p className="p-bold">Seller details</p>
+            <p>Name : {email}</p>
+            <p>Address: {address}</p>
+          </div>
+          <div>
+            <Button
+              onClick={handleSubmit}
+              sx={{ width: "100%", padding: "7px", marginTop: "10px" }}
+              variant="contained"
+              endIcon={<LocalMallIcon />}
+            >
+              Buy
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 export default PostDetails;

@@ -15,7 +15,9 @@ export default function PostGrid({ data }) {
         { data.map((post:any, index:any) => {
              return (
               <div className="post-card" key={index}>
+                <a href={`/post/${post._id}`} style={{ textDecoration: "none" }}>
                  <PostCard address={post.address} date={post.date} price={post.price} description={post.description} image={post.image} name={post.name} />
+                </a>
               </div>
              );
         })
