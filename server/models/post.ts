@@ -36,6 +36,12 @@ const PostSchema = new mongoose.Schema(
       isSold:{
          type: Boolean
       },
+      Bought_on:{
+          type: Date
+      },
+      service_name:{
+          type: String
+      },
       Buyer_email: {
           type: String
       },
