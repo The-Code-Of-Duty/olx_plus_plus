@@ -24,8 +24,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import LoginDiv from "../loginDiv/loginDiv";
-import "./Navbar.scss"
+import GoogleLoginComp from "../Google/googleLogin";
+import "./Navbar.scss";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -67,7 +67,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar(props: any) {
+  const isAuthenticated = props.userData.name != "";
+  console.log(isAuthenticated);
+
   const [age, setAge] = React.useState("");
   const color = blue[50];
   const handleChange = (event: any) => {
@@ -172,7 +175,7 @@ export default function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{backgroundColor: '#20baf7'}}>
+      <AppBar position="static" sx={{ backgroundColor: "#20baf7" }}>
         <Toolbar className="toolbar-flex">
           <Typography
             variant="h6"
@@ -202,9 +205,28 @@ export default function Navbar() {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <LoginDiv />
+          {!isAuthenticated ? 
+            <GoogleLoginComp />
+          : (
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+          )}
+
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-          <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+            >
               <Badge badgeContent={4} color="error">
                 <MailIcon />
               </Badge>
@@ -217,17 +239,6 @@ export default function Navbar() {
               <Badge badgeContent={17} color="error">
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
