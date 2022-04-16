@@ -1,7 +1,6 @@
 import { GoogleLogin } from "react-google-login";
 import React, { useContext } from "react";
 import { refreshToken } from "../../utils/refreshToken";
-import "./googleLogin.scss";
 import axios, { AxiosResponse } from "axios";
 
 export default function GoogleLoginComp() {

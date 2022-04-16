@@ -25,7 +25,7 @@ mongoose.connect(
 // app.get('/', (req: Request, res: Response) => {
 //     res.send('Hello World');
 // });
-
+app.use(express.json());
 app.use(cors());
 app.use(helmet());
 app.use(morgan("combined"));
