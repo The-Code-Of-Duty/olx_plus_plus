@@ -2,15 +2,8 @@ import * as React from "react";
 import Container from "@mui/material/Container";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
-import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import { blue } from "@mui/material/colors";
-import InputLabel from "@mui/material/InputLabel";
-import FormControl from "@mui/material/FormControl";
-import NativeSelect from "@mui/material/NativeSelect";
-import Stack from "@mui/material/Stack";
-import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -27,6 +20,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import GoogleLoginComp from "../Google/googleLogin";
 import GoogleLogout from "../Google/googleLogout";
 import "./Navbar.scss";
+import Button from "@mui/material/Button";
 
 
 const Search = styled("div")(({ theme }) => ({
@@ -185,8 +179,8 @@ export default function Navbar(props: any) {
             noWrap
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            OLX
+          ><a href="/" style={{textDecoration: "none"}}>
+            OLX++ </a>
           </Typography>
           {/* <Stack spacing={2} sx={{ width: 300, marginLeft: 10 }}>
             <Autocomplete
@@ -244,6 +238,7 @@ export default function Navbar(props: any) {
               </Badge>
             </IconButton>
           </Box>
+          {isAuthenticated && <Button variant="outlined" style={{color:"white", marginLeft: "10px"}}>SELL</Button>}
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
