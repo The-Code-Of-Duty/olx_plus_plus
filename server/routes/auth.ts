@@ -14,7 +14,7 @@ router.post("/login",async (req:Request, res:Response) => {
     const userData = await googleAuth(token);
 
     const user = await User.findOne({googleId:userData.googleId}).exec();
-    console.log(user);
+   // console.log(user);
     try{
         if(user == null){
             const newUser = new User(userData);

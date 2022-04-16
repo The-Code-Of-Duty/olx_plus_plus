@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema(
   {
-      user_email: {
+      email: {
           type: String,
           required: true
       },
@@ -10,14 +10,14 @@ const PostSchema = new mongoose.Schema(
           type: String,
           required: true
       },
-      post_photo:{
+      image:{
           type: String,
       },
       category: {
           type: String,
           required: true
       },
-      location:{
+      address:{
           type: String,
           required: true
       },
@@ -32,6 +32,15 @@ const PostSchema = new mongoose.Schema(
       description: {
           type: String,
           required: true
+      },
+      isSold:{
+         type: Boolean
+      },
+      Buyer_email: {
+          type: String
+      },
+      Buyer_name: {
+          type: String
       }
   }
 );

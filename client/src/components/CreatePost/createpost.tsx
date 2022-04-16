@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useContext } from "react";
 import upload from "../../utils/upload.png";
+import axios, { AxiosResponse } from "axios";
 import "./createpost.css";
 const CreatePost = () => {
   let [name, setName] = useState("");
@@ -9,33 +10,31 @@ const CreatePost = () => {
   let [address, setAddress] = useState("");
 
   let [image, setImage] = useState();
-  //   const handleSubmit = () => {
-  //     let date = new Date().toDateString();
-  //     Firebase.storage()
-  //       .ref(`/image/${image.name}`)
-  //       .put(image)
-  //       .then(({ ref }) => {
-  //         ref.getDownloadURL().then((url) => {
-  //           Firebase.firestore()
-  //             .collection("products")
-  //             .add({
-  //               name,
-  //               category,
-  //               price,
-  //               description,
-  //               url,
-  //               userId: user.uid,
-  //               createdAt: date,
-  //             })
-  //             .then(() => {
-  //               history.push("/");
-  //             });
-  //         });
-  //       });
-  //   };
+    const handleSubmit = async (e:any) => {
+      e.preventDefault();
+      const email = localStorage.getItem("userEmail");
+      const date = new Date();
+        const body = {
+          email: email, 
+          name: name,
+          image: image,  
+          category: category,
+          address: address,   
+          date: date,
+          price: price,
+          description: description,   
+        };
+        console.log(body);
+        const response : AxiosResponse =await axios.post('http://localhost:8080/post', body, {headers: { 
+          'Content-type': 'application/json'
+        }}).catch(err => console.log(err)) as AxiosResponse;
+        console.log(response);
+        
+    };
   return (
     <Fragment>
       <div className="centerDiv">
+        <form onSubmit={handleSubmit}>
         <label>Name</label>
         <br />
         <input
@@ -119,9 +118,10 @@ const CreatePost = () => {
           }}
         />
         <br />
-        <button className="uploadBtn" onClick={() => {}}>
+        <button className="uploadBtn" type="submit">
           upload and Submit
         </button>
+        </form>
       </div>
     </Fragment>
   );
