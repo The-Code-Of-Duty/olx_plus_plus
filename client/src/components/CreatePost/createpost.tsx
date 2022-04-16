@@ -9,33 +9,36 @@ const CreatePost = () => {
   let [address, setAddress] = useState("");
 
   let [image, setImage] = useState();
-  //   const handleSubmit = () => {
-  //     let date = new Date().toDateString();
-  //     Firebase.storage()
-  //       .ref(`/image/${image.name}`)
-  //       .put(image)
-  //       .then(({ ref }) => {
-  //         ref.getDownloadURL().then((url) => {
-  //           Firebase.firestore()
-  //             .collection("products")
-  //             .add({
-  //               name,
-  //               category,
-  //               price,
-  //               description,
-  //               url,
-  //               userId: user.uid,
-  //               createdAt: date,
-  //             })
-  //             .then(() => {
-  //               history.push("/");
-  //             });
-  //         });
-  //       });
-  //   };
+    const handleSubmit = (e:any) => {
+      e.preventDefault();
+      const email = localStorage.getItem("email");
+      const date = new Date();
+        const body = {
+          "email": email, 
+          "name": name,
+          "image": image,  
+          "category": category,
+          "address": address,   
+          "date": date,
+          "price": price,
+          "description": description,
+            
+        }
+        const response = fetch('http://localhost:8080/post', { 
+          method: 'POST',
+          mode: 'no-cors', // no-cors, *cors, same-origin
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        }).then((response)=>{
+          console.log(response);
+        })
+    };
   return (
     <Fragment>
       <div className="centerDiv">
+        <form onSubmit={handleSubmit}>
         <label>Name</label>
         <br />
         <input
@@ -119,9 +122,10 @@ const CreatePost = () => {
           }}
         />
         <br />
-        <button className="uploadBtn" onClick={() => {}}>
+        <button className="uploadBtn" type="submit">
           upload and Submit
         </button>
+        </form>
       </div>
     </Fragment>
   );
