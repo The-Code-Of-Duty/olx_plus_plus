@@ -16,7 +16,7 @@ const mongoUrl: string = process.env.MONGO_URL as string;
 
 mongoose.connect(
     mongoUrl,
-    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
+    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true , useFindAndModify: false},
     () => {
         console.log('Connected to MongoDB');
     }
