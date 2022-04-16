@@ -11,7 +11,7 @@ import FavoriteIcon from "@mui/icons-material/FavoriteBorder";
 import "./post.scss";
 
 
-export default function PostCard({location='', date='', price='', description='', image=''}) {
+export default function PostCard({address='', date='', price='', description='', image='', name=''}) {
   return (
     <Card>
       <CardActions
@@ -65,6 +65,9 @@ export default function PostCard({location='', date='', price='', description=''
           <FavoriteIcon />
         </IconButton>
         </div>
+        <Typography variant="h5" gutterBottom component="div">
+        {name}
+      </Typography>
         <Typography color="text.secondary">{description}</Typography>
       </CardContent>
       <div
@@ -74,7 +77,7 @@ export default function PostCard({location='', date='', price='', description=''
         className="post-foot"
       >
         <div className="location">
-          {location}
+          {address}
         </div>
         <div className="date">{date}</div>
       </div>

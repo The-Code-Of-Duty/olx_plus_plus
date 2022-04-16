@@ -6,27 +6,20 @@ import Container from '@mui/material/Container';
 import axios, { AxiosResponse } from "axios";
 import "./Postgrid.scss";
 
-export default function PostGrid(data:any) {
-  
+export default function PostGrid({ data }) {
+    
   return (
     <div style={{ width: "100%" }}>
       <Container>
       <div className="post">
-        <div className="post-card">
-          <PostCard />
-        </div>
-        <div className="post-card">
-          <PostCard />
-        </div>
-        <div className="post-card">
-          <PostCard />
-        </div>
-        <div className="post-card">
-          <PostCard />
-        </div>
-        <div className="post-card">
-          <PostCard />
-        </div>
+        { data.map((post:any, index:any) => {
+             return (
+              <div className="post-card" key={index}>
+                 <PostCard address={post.address} date={post.date} price={post.price} description={post.description} image={post.image} name={post.name} />
+              </div>
+             );
+        })
+      }
       </div>
       </Container>
     </div>
