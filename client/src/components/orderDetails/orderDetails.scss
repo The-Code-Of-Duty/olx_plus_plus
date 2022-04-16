@@ -1,4 +1,4 @@
-.order-details{
+.order-details {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -6,14 +6,14 @@
     border-radius: 10px;
     background-color: rgba(231, 231, 231, 0.555);
 
-    .upper{
+    .upper {
         display: flex;
         flex-direction: row;
 
         align-items: flex-start;
         justify-content: space-evenly;
     }
-    .lower{
+    .lower {
         display: flex;
         flex-direction: row;
 

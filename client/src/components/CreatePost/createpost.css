@@ -22,15 +22,15 @@
     width: 100%;
     height: 48px;
     /* border-color: transparent; */
-    background-color: #20BAF7;
+    background-color: #20baf7;
     color: whitesmoke;
     font-weight: 900;
 }
 
 .uploadBtn:hover {
     background-color: white;
-    color: #20BAF7;
-    border: 2px solid #20BAF7;
+    color: #20baf7;
+    border: 2px solid #20baf7;
 }
 
 .centerDiv label {

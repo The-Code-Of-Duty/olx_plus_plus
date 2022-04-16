@@ -1,21 +1,21 @@
-.category{
+.category {
     border-bottom: 1px solid gray;
     box-shadow: inset 0px 0px 1px 1px rgb(185, 184, 184);
-    .category-bar{
-        display:flex;
-        flex-direction:row;
+    .category-bar {
+        display: flex;
+        flex-direction: row;
         justify-content: space-between;
-        .category-list{
-            margin-top:auto;
-            margin-bottom:auto;
+        .category-list {
+            margin-top: auto;
+            margin-bottom: auto;
         }
-        ul{
+        ul {
             list-style: none;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
             margin: auto;
-            li{
+            li {
                 margin: 0px 10px;
             }
         }

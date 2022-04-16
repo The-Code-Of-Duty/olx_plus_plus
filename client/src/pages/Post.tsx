@@ -1,10 +1,10 @@
-import React from 'react'
-import CreatePost from "../components/CreatePost/createpost"
+import React from 'react';
+import CreatePost from '../components/CreatePost/createpost';
 
 export default function Post() {
-  return (
-    <div>
-        <CreatePost />
-    </div>
-  )
+    return (
+        <div>
+            <CreatePost />
+        </div>
+    );
 }

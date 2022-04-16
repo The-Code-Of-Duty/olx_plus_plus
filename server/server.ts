@@ -2,7 +2,7 @@ require('dotenv').config();
 
 import { Request, Response } from 'express';
 import express from 'express';
-import auth from './routes/auth'
+import auth from './routes/auth';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import mongoose from 'mongoose';
@@ -28,7 +28,7 @@ mongoose.connect(
 app.use(express.json());
 app.use(cors());
 app.use(helmet());
-app.use(morgan("combined"));
+app.use(morgan('combined'));
 app.use('/auth', auth);
 app.use('/', post);
 app.listen(PORT, () => {
